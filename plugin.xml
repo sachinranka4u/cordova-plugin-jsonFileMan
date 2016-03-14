@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.sachin.testing.JSONFileRW"
+    version="0.1.0">
+    <name>JSONFileRW</name>
+    <description>Read and write JSON file to available device storage</description>
+    <license>MIT</license>
+    <keywords>cordova,JSON</keywords>
+    
+    <js-module src="www/JSONFileRW.js" name="JSONFileRW">
+        <clobbers target="JSONFileRW" />
+    </js-module>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    
+    <!-- android -->
+    <platform name="android">
+        <framework src="com.android.support:support-v4:+" />
+        
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="JSONFileRW" >
+                <param name="android-package" value="com.sachin.testing.JSONFileRW"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+        
+        <source-file src="src/com/sachin/testing/JSONFileRW.java" target-dir="src/com/sachin/testing/" />
+    </platform>
+
+</plugin>
