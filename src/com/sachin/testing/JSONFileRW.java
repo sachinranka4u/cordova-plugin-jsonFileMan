@@ -59,19 +59,25 @@ public class JSONFileRW extends CordovaPlugin {
         String extn = null;
         boolean writeMode = false;
         Log.v(TAG, "execute: action=" + action);
-        if (!action.equals("writeJSON")) {
-            callbackContext.error("Invalid action : " + action);
-            result = false;
-        } else if (!action.equals("readJSON")) {
-            callbackContext.error("Invalid action : " + action);
-            result = false;
-            return result;
-        }
-        if (action.equals("writeJSON")) {
+//        if (!action.equalsIgnoreCase("writeJSON")) {
+//            callbackContext.error("Invalid action : " + action);
+//            result = false;
+//        } else if (!action.equalsIgnoreCase("readJSON")) {
+//            callbackContext.error("Invalid action : " + action);
+//            result = false;
+//            return result;
+//        }
+//        if(action.equalsIgnoreCase("writeJSON")){
+//            
+//        }
+        if (action.equalsIgnoreCase("writeJSON")) {
             Log.v(TAG, "Write JSON to file mode");
             writeMode = true;
-        } else {
+        } else if (action.equalsIgnoreCase("readJSON")) {
             Log.v(TAG, "Read from file to JSON");
+        } else {
+            callbackContext.error("Invalid action : " + action);
+            result = false;
         }
         try {
             // getting JSONObject (write mode) or JSON key (read mode)
