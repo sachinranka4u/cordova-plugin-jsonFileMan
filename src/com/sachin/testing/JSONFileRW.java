@@ -100,7 +100,7 @@ public class JSONFileRW extends CordovaPlugin {
 
                 String folder = params.has("folder") ? storagetype + "/"
                         + params.getString("folder") : storagetype
-                        + "/Data/Ignite";
+                        + "/myData/Ignite";
 
                 Boolean overwrite = params.has("overwrite") ? params
                         .getBoolean("overwrite") : false;
